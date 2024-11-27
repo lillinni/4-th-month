@@ -1,0 +1,12 @@
+{% include '../header.html' %}
+
+<h1>Delete Order</h1>
+<p>Are you sure you want to delete order {{ order.id }}?</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+    <a href="{% url 'order_list' %}">Cancel</a>
+</form>
+
+{% include '../footer.html' %}

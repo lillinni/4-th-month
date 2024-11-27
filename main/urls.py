@@ -11,6 +11,8 @@ urlpatterns = [
     path('system_time/', views.system_time, name='system_time'),
     path('', include('main_page.urls')),
     path('', include('hashtags.urls')),
+    path('', include('basket.urls')),
+
 
 ]
 urlpatterns += static(settings.MEDIA_URL,
