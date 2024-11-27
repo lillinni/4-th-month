@@ -1,0 +1,17 @@
+{% include 'header.html' %}
+
+
+    {% for i in older %}
+    <div class="card" style="width: 18rem; margin: 0 auto;">
+        <img src="https://marketing-course.ru/wp-content/uploads/2015/03/hashtag.jpg" class="card-img-top" alt="Изображение">
+        <div class="card-body">
+            <h5 class="card-title">{{ i.title }}</h5>
+            <p class="card-text">{{ i.price }}</p>
+            <a href="#" class="btn btn-primary">Подробнее</a>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% include 'footer.html' %}

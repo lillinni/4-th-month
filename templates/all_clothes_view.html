@@ -1,0 +1,23 @@
+{% include 'header.html' %}
+<div class="container my-5">
+    <div class="d-flex justify-content-around mb-4">
+        <a href="{% url 'older_tags' %}" class="btn btn-primary">Для пожилых</a>
+        <a href="{% url 'younger_tags' %}" class="btn btn-secondary">Для молодых</a>
+        <a href="{% url 'kids_tags' %}" class="btn btn-secondary">Для детей</a>
+
+    </div>
+
+    {% for i in clothes %}
+    <div class="card" style="width: 18rem; margin: 0 auto;">
+        <img src="https://marketing-course.ru/wp-content/uploads/2015/03/hashtag.jpg" class="card-img-top" alt="Изображение">
+        <div class="card-body">
+            <h5 class="card-title">{{ i.title }}</h5>
+            <p class="card-text">{{ i.price }}</p>
+            <a href="#" class="btn btn-primary">Подробнее</a>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% include 'footer.html' %}

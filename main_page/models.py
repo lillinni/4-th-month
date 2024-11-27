@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 class Book(models.Model):
@@ -47,6 +48,10 @@ class Book(models.Model):
         verbose_name='Дата и время создания'  
     )
 
+    def average_rating(self):
+        comments = self.comments.all()
+        if comments:
+            return sum(comment.mark for comment in comments) / comments.count()
 
     class Meta:
         verbose_name = 'Книга'
@@ -54,3 +59,18 @@ class Book(models.Model):
 
     def __str__(self):
         return f'{self.title}-{self.price}'
+    
+
+class Comment(models.Model):
+    book = models.ForeignKey('Book', on_delete=models.CASCADE, related_name='comments', verbose_name='Книга')
+    name = models.CharField(max_length=100, verbose_name='Имя пользователя')
+    text = models.TextField(verbose_name='Оставьте комментарий')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    mark = models.PositiveIntegerField(verbose_name='Укажите оценку от 1 до 5', validators=[MinValueValidator(1), MaxValueValidator(5)])
+
+    def __str__(self):
+        return f"{self.book}-{self.created_at}"
+
+    class Meta:
+        verbose_name = 'комментарий'
+        verbose_name_plural = 'комментарии'
