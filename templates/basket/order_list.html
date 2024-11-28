@@ -1,18 +1,22 @@
+{% load static %}
 {% include '../header.html' %}
-
-<ul>
-    {% for i in orders %}
-    <li>
-        <h1>{{ i.name }}</h1>
-        <p>{{ i.phone_number }}</p>
-        <p>{{ i.email }}</p>
-        <p>{{ i.book }}</p>
-        <button><a href="{% url 'delete_order' i.id %}">Delete</a></button>
-        <button><a href="{% url 'edit_order' i.id %}">Edit</a></button>
-    </li>
-    {% empty %}
-    <li>No orders available.</li>
-    {% endfor %}
-</ul>
+<link rel="stylesheet" href="{% static 'css/order_list.css' %}">
+<div class="container">
+    <div class="order_list">
+        <h2>Order list</h2>
+        <ul>
+            {% for i in orders %}
+            <li>
+                <h1>{{ i.name }}</h1>
+                <p>{{ i.phone_number }}</p>
+                <p>{{ i.email }}</p>
+                <p>{{ i.book }}</p>
+                <button><a href="{% url 'delete_order' i.id %}">Delete</a></button>
+                <button><a href="{% url 'edit_order' i.id %}">Edit</a></button>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 
 {% include '../footer.html' %}

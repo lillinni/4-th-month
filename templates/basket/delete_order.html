@@ -1,12 +1,16 @@
+{% load static %}
 {% include '../header.html' %}
+<link rel="stylesheet" href="{% static 'css/delete_order.css' %}">
 
-<h1>Delete Order</h1>
-<p>Are you sure you want to delete order {{ order.id }}?</p>
+<div class="delete_order">
+    <h1>Delete Order</h1>
+    <p>Are you sure you want to delete order {{ object.id }}?</p>
 
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit">Confirm</button>
-    <a href="{% url 'order_list' %}">Cancel</a>
-</form>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirm</button>
+        <a href="{% url 'order_list' %}">Cancel</a>
+    </form>
+</div>
 
 {% include '../footer.html' %}

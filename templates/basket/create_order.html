@@ -1,11 +1,15 @@
+{% load static %}
 {% include '../header.html' %}
-
-<form action="{% url 'create_order' %}" method="POST" enctype="multipart/form-data">
-    <h1>Create Order</h1>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create Order</button>
-</form>
-
+<link rel="stylesheet" href="{% static 'css/create_edit_order.css' %}">
+<div class="container">
+    <div class="create_order">
+        <h1>Create order</h1>
+        <form action="{% url 'create_order' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Create Order</button>
+        </form>
+    </div>
+</div>
 
 {% include '../footer.html' %}

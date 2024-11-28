@@ -12,6 +12,8 @@ urlpatterns = [
     path('', include('main_page.urls')),
     path('', include('hashtags.urls')),
     path('', include('basket.urls')),
+    path('', include('cbv.urls')),
+
 
 
 ]
