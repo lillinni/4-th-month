@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'hashtags',
     'basket',
     'cbv',
+    'parsing_jutsu',
 ]
 
 MIDDLEWARE = [
