@@ -7,3 +7,4 @@ class SalaryMiddleware(MiddlewareMixin):
             level = request.POST.get("level")
             if level not in ["Junior", "Middle", "Senior"]:
                 return HttpResponseBadRequest("Invalid qualification level.")
+        return None
