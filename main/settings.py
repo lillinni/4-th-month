@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'basket',
     'cbv',
     'parsing_jutsu',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -41,6 +42,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'users.middleware.SalaryMiddleware',
 ]
 
 ROOT_URLCONF = 'main.urls'
